@@ -8,3 +8,6 @@ My RPG-style civilizations mod...with a unique spin.
 Copyright 2013
 
 All rights reserved. Distribution of the software in any form is only allowed with explicit, prior permission from the owner.
+
+
+All characters are copyrighted to their respective players.
