@@ -26,8 +26,8 @@ import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 
 @Mod( modid = "FurryKingdoms", name="Furry Kingdoms", version="beta", certificateFingerprint = "@GET_FINGERPRINT@")
 @NetworkMod(clientSideRequired = true, serverSideRequired = true,
-clientPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingdomsData" }, packetHandler = ClientPackets.class),
-serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingdomsData" }, packetHandler = ServerPackets.class))
+clientPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = ClientPackets.class),
+serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = ServerPackets.class))
 
 public class FurryKingdoms implements DragonAPIMod {
 
