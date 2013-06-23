@@ -16,6 +16,7 @@ import Reika.RotaryCraft.ClientPackets;
 import Reika.RotaryCraft.ServerPackets;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -31,8 +32,12 @@ serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, pa
 
 public class FurryKingdoms implements DragonAPIMod {
 
+	@Instance("FurryKingdoms")
+	public static FurryKingdoms instance = new FurryKingdoms();
+
 	@PreInit
 	public void preload(FMLPreInitializationEvent evt) {
+		FurryConfig.initProps(evt);
 
 	}
 
