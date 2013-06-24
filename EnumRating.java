@@ -19,6 +19,10 @@ public enum EnumRating {
 	private static final EnumRating[] ratingList = EnumRating.values();
 
 	public static EnumRating getRatingFromIndex(int i) {
+		if (i >= ratingList.length)
+			return R;
+		if (i < 0)
+			return G;
 		return ratingList[i];
 	}
 }

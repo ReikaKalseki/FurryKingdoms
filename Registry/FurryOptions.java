@@ -19,7 +19,11 @@ public enum FurryOptions {
 
 	CHATRATING("Chat Rating", EnumRating.PG13.ordinal()),
 	STORYRATING("Storyline Rating", EnumRating.PG13.ordinal()),
-	IMAGERATING("Image Rating", EnumRating.PG13.ordinal());
+	IMAGERATING("Image Rating", EnumRating.PG13.ordinal()),
+	ENABLEPORTALS("Enable Portals", true),
+	ENABLETELEPORT("Enable Teleport", true),
+	COMMUNICATIONS("Enable Chat", true),
+	UNPROVOKEDATTACK("Enable Unprovoked Attacks", true);
 
 	private String label;
 	private boolean defaultState;

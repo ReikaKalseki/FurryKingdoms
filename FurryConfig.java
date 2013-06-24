@@ -16,7 +16,6 @@ import java.io.PrintWriter;
 import net.minecraftforge.common.Configuration;
 import Reika.DragonAPI.Libraries.ReikaJavaLibrary;
 import Reika.FurryKingdoms.Registry.FurryOptions;
-import Reika.RealBiomes.Registry.OptionRegistry;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class FurryConfig {
@@ -32,7 +31,7 @@ public class FurryConfig {
 	public static EnumRating storyRating;
 	public static EnumRating imageRating;*/
 
-	public static Object[] controls = new Object[OptionRegistry.optionList.length];
+	public static Object[] controls = new Object[FurryOptions.optionList.length];
 
 	public static void initProps(FMLPreInitializationEvent event) {
 
