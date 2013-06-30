@@ -9,29 +9,40 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.TileEntities;
 
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import Reika.FurryKingdoms.Base.FurryTileEntity;
 
-public class TileEntityFlag extends TileEntity {
+public class TileEntityFlag extends FurryTileEntity {
+
+	public static final float MAXANGLE = 45;
+
+	private float phi1;
+	private float phi2;
+	private int dir1 = 1;
+	private int dir2 = -1;
 
 	@Override
-	public boolean canUpdate() {
-		return true;
+	public void updateEntity(World world, int x, int y, int z, int meta) {
+
 	}
 
 	@Override
-	public void updateEntity() {
-		World world = worldObj;
-		int x = xCoord;
-		int y = yCoord;
-		int z = zCoord;
-		int meta = this.getBlockMetadata();
-
-		this.animate();
-	}
-
-	private void animate() {
-
+	public void animateWithTick(World world, int x, int y, int z) {
+		int mult = 1;
+		phi1 += par5Random.nextFloat()*dir1*mult;
+		phi2 += par5Random.nextFloat()*dir2*mult;
+		if (phi1 >= MAXANGLE) {
+			dir1 = -1;
+		}
+		if (phi1 <= -MAXANGLE) {
+			dir1 = 1;
+		}
+		if (phi2 >= MAXANGLE) {
+			dir2 = -1;
+		}
+		if (phi2 <= -MAXANGLE) {
+			dir2 = 1;
+		}
 	}
 
 }

@@ -11,11 +11,11 @@ package Reika.FurryKingdoms.Registry;
 
 import net.minecraftforge.common.Configuration;
 import Reika.DragonAPI.Exception.RegistrationException;
+import Reika.DragonAPI.Interfaces.ConfigList;
 import Reika.FurryKingdoms.EnumRating;
-import Reika.FurryKingdoms.FurryConfig;
 import Reika.FurryKingdoms.FurryKingdoms;
 
-public enum FurryOptions {
+public enum FurryOptions implements ConfigList {
 
 	CHATRATING("Chat Rating", EnumRating.PG13.ordinal()),
 	STORYRATING("Storyline Rating", EnumRating.PG13.ordinal()),
@@ -73,11 +73,11 @@ public enum FurryOptions {
 	}
 
 	public boolean getState() {
-		return (Boolean)FurryConfig.controls[this.ordinal()];
+		return (Boolean)FurryKingdoms.config.getControl(this.ordinal());
 	}
 
 	public int getValue() {
-		return (Integer)FurryConfig.controls[this.ordinal()];
+		return (Integer)FurryKingdoms.config.getControl(this.ordinal());
 	}
 
 }

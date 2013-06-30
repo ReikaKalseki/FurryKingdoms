@@ -11,9 +11,14 @@ package Reika.FurryKingdoms;
 
 import java.net.URL;
 
-import Reika.DragonAPI.Interfaces.DragonAPIMod;
-import Reika.RotaryCraft.ClientPackets;
-import Reika.RotaryCraft.ServerPackets;
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import Reika.DragonAPI.Base.DragonAPIMod;
+import Reika.DragonAPI.Instantiable.ControlledConfig;
+import Reika.DragonAPI.Libraries.ReikaRegistryHelper;
+import Reika.FurryKingdoms.Registry.FurryBlocks;
+import Reika.FurryKingdoms.Registry.FurryOptions;
+import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -23,29 +28,43 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod( modid = "FurryKingdoms", name="Furry Kingdoms", version="beta", certificateFingerprint = "@GET_FINGERPRINT@")
-@NetworkMod(clientSideRequired = true, serverSideRequired = true,
-clientPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = ClientPackets.class),
-serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = ServerPackets.class))
+@NetworkMod(clientSideRequired = true, serverSideRequired = true/*,
+clientPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = null.class),
+serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = null.class)*/)
 
-public class FurryKingdoms implements DragonAPIMod {
+public class FurryKingdoms extends DragonAPIMod {
 
 	@Instance("FurryKingdoms")
 	public static FurryKingdoms instance = new FurryKingdoms();
 
+	public static final ControlledConfig config = new ControlledConfig(instance, FurryOptions.optionList, FurryBlocks.blockList, null, null, 1);
+
+	public static Block[] blocks = new Block[FurryBlocks.blockList.length];
+
+	public static final TabFurry tab = new TabFurry(CreativeTabs.getNextID(), instance.getDisplayName());
+
+	@Override
 	@PreInit
 	public void preload(FMLPreInitializationEvent evt) {
-		FurryConfig.initProps(evt);
+		config.initProps(evt);
 
 	}
 
+	@Override
 	@Init
 	public void load(FMLInitializationEvent event) {
-
+		this.addBlocks();
 	}
 
+	private static void addBlocks() {
+		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks, true);
+		GameRegistry.registerTileEntity(TileEntityFlag.class, "FurryFlag");
+	}
+
+	@Override
 	@PostInit // Like the modsLoaded thing from ModLoader
 	public void postload(FMLPostInitializationEvent evt) {
 
@@ -75,5 +94,4 @@ public class FurryKingdoms implements DragonAPIMod {
 	public URL getWiki() {
 		return null;
 	}
-
 }
