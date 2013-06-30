@@ -14,7 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
+import Reika.FurryKingdoms.Registry.FurryTiles;
 
 public class BlockTE extends Block {
 
@@ -25,7 +25,7 @@ public class BlockTE extends Block {
 
 	@Override
 	public TileEntity createTileEntity(World world, int meta) {
-		return new TileEntityFlag();
+		return FurryTiles.createTEFromMetadata(meta);
 	}
 
 	@Override

@@ -18,7 +18,7 @@ import Reika.DragonAPI.Instantiable.ControlledConfig;
 import Reika.DragonAPI.Libraries.ReikaRegistryHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryOptions;
-import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
+import Reika.FurryKingdoms.Registry.FurryTiles;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -61,7 +61,8 @@ public class FurryKingdoms extends DragonAPIMod {
 
 	private static void addBlocks() {
 		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks, true);
-		GameRegistry.registerTileEntity(TileEntityFlag.class, "FurryFlag");
+		for (int i = 0; i < FurryTiles.TEList.length; i++)
+			GameRegistry.registerTileEntity(FurryTiles.TEList[i].getTEClass(), "Furry"+FurryTiles.TEList[i].getName());
 	}
 
 	@Override
