@@ -14,7 +14,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
 import Reika.DragonAPI.Interfaces.IDRegistry;
 import Reika.DragonAPI.Interfaces.RegistrationList;
-import Reika.DragonAPI.Libraries.ReikaJavaLibrary;
+import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.Blocks.BlockTE;
 
@@ -75,7 +75,7 @@ public enum FurryBlocks implements RegistrationList, IDRegistry {
 
 	@Override
 	public String getUnlocalizedName() {
-		return ReikaJavaLibrary.stripSpaces(this.getBasicName());
+		return ReikaStringParser.stripSpaces(this.getBasicName());
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public enum FurryBlocks implements RegistrationList, IDRegistry {
 
 	@Override
 	public String getBasicName() {
-		return this.name().substring(0, 1)+this.name().substring(1).toLowerCase();
+		return ReikaStringParser.capFirstChar(this.name());
 	}
 
 	@Override
@@ -111,6 +111,10 @@ public enum FurryBlocks implements RegistrationList, IDRegistry {
 	@Override
 	public boolean hasItemBlock() {
 		return false;
+	}
+
+	public boolean isDummiedOut() {
+		return blockClass == null;
 	}
 
 }

@@ -11,6 +11,7 @@ package Reika.FurryKingdoms.Base;
 
 import Reika.DragonAPI.Base.TileEntityBase;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
+import Reika.FurryKingdoms.Registry.FurryTiles;
 
 public abstract class FurryTileEntity extends TileEntityBase {
 
@@ -22,5 +23,10 @@ public abstract class FurryTileEntity extends TileEntityBase {
 	@Override
 	public final int getTileEntityBlockID() {
 		return FurryBlocks.TILEENTITY.getBlockID();
+	}
+
+	@Override
+	public String getTEName() {
+		return FurryTiles.TEList[this.getRealBlockMetadata()].getName();
 	}
 }

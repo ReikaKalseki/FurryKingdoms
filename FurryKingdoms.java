@@ -15,6 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import Reika.DragonAPI.Base.DragonAPIMod;
 import Reika.DragonAPI.Instantiable.ControlledConfig;
+import Reika.DragonAPI.Instantiable.ModLogger;
 import Reika.DragonAPI.Libraries.ReikaRegistryHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryOptions;
@@ -46,11 +47,13 @@ public class FurryKingdoms extends DragonAPIMod {
 
 	public static final TabFurry tab = new TabFurry(CreativeTabs.getNextID(), instance.getDisplayName());
 
+	public static ModLogger logger;
+
 	@Override
 	@PreInit
 	public void preload(FMLPreInitializationEvent evt) {
 		config.initProps(evt);
-
+		logger = new ModLogger(instance, FurryOptions.LOGLOADING.getState(), FurryOptions.DEBUGMODE.getState(), false);
 	}
 
 	@Override
@@ -60,7 +63,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	}
 
 	private static void addBlocks() {
-		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks, true);
+		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks, logger.shouldLog());
 		for (int i = 0; i < FurryTiles.TEList.length; i++)
 			GameRegistry.registerTileEntity(FurryTiles.TEList[i].getTEClass(), "Furry"+FurryTiles.TEList[i].getName());
 	}
@@ -93,6 +96,16 @@ public class FurryKingdoms extends DragonAPIMod {
 
 	@Override
 	public URL getWiki() {
+		return null;
+	}
+
+	@Override
+	public boolean hasVersion() {
+		return false;
+	}
+
+	@Override
+	public String getVersionName() {
 		return null;
 	}
 }
