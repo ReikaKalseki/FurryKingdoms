@@ -44,5 +44,4 @@ public class TileEntityFlag extends FurryTileEntity {
 			dir2 = 1;
 		}
 	}
-
 }

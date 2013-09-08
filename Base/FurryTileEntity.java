@@ -29,4 +29,9 @@ public abstract class FurryTileEntity extends TileEntityBase {
 	public String getTEName() {
 		return FurryTiles.TEList[this.getRealBlockMetadata()].getName();
 	}
+
+	@Override
+	public boolean shouldRenderInPass(int pass) {
+		return pass == 0;
+	}
 }
