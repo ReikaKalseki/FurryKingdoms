@@ -20,14 +20,15 @@ import net.minecraftforge.common.ForgeHooks;
 
 public abstract class EntityCharacterBase extends EntityLiving {
 
-	protected SpeciesTypes species;
+	private final SpeciesTypes species;
 
-	public EntityCharacterBase(World par1World) {
+	public EntityCharacterBase(World par1World, SpeciesTypes type) {
 		super(par1World);
+		this.species = type;
 	}
 
 	@Override
-	public int getMaxHealth() {
+	public final int getMaxHealth() {
 		return species.getMaxHealth();
 	}
 
@@ -125,5 +126,9 @@ public abstract class EntityCharacterBase extends EntityLiving {
 			}
 		}
 	}
+
+public final SpeciesTypes getSpecies() {
+	return this.species;
+}
 
 }
