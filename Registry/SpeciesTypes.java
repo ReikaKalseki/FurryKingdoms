@@ -18,7 +18,8 @@ public enum SpeciesTypes {
 	SHARK(50, 0.3F),
 	CETACEAN(50, 0.5F),
 	REPTILE(30, 0.6F),
-	AVIAN(20, 0.9F);
+	AVIAN(20, 0.9F),
+	EQUES(40, 0.8F);
 
 	private SpeciesTypes(int halfhearts, float dura) {
 		health = halfhearts;

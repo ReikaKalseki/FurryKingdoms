@@ -11,10 +11,16 @@ package Reika.FurryKingdoms.Entities;
 
 import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.EntityCharacterBase;
+import Reika.FurryKingdoms.Registry.SpeciesTypes;
 
 public class EntitySnowdrop extends EntityCharacterBase {
 
 	public EntitySnowdrop(World par1World) {
 		super(par1World);
+	}
+
+	@Override
+	public SpeciesTypes getSpecies() {
+		return SpeciesTypes.EQUES;
 	}
 }

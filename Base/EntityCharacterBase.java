@@ -17,19 +17,19 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import Reika.FurryKingdoms.Registry.SpeciesTypes;
 
 public abstract class EntityCharacterBase extends EntityLiving {
 
-	private final SpeciesTypes species;
-
-	public EntityCharacterBase(World par1World, SpeciesTypes type) {
+	public EntityCharacterBase(World par1World) {
 		super(par1World);
-		this.species = type;
 	}
+
+	public abstract SpeciesTypes getSpecies();
 
 	@Override
 	public final int getMaxHealth() {
-		return species.getMaxHealth();
+		return this.getSpecies().getMaxHealth();
 	}
 
 	@Override
@@ -69,7 +69,7 @@ public abstract class EntityCharacterBase extends EntityLiving {
 					lastDamage = par2;
 					prevHealth = health;
 					hurtResistantTime = maxHurtResistantTime;
-					this.damageEntity(par1DamageSource, (int)(par2*species.getHurtability()));
+					this.damageEntity(par1DamageSource, (int)(par2*this.getSpecies().getHurtability()));
 					hurtTime = maxHurtTime = 10;
 				}
 
@@ -126,9 +126,5 @@ public abstract class EntityCharacterBase extends EntityLiving {
 			}
 		}
 	}
-
-public final SpeciesTypes getSpecies() {
-	return this.species;
-}
 
 }
