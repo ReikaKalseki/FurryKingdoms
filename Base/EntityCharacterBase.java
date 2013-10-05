@@ -11,6 +11,7 @@ package Reika.FurryKingdoms.Base;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
@@ -27,13 +28,12 @@ public abstract class EntityCharacterBase extends EntityLiving {
 
 	public abstract SpeciesTypes getSpecies();
 
-	@Override
-	public final int getMaxHealth() {
+	public int getSpeciesMaxHealth() {
 		return this.getSpecies().getMaxHealth();
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) {
+	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
 		if (ForgeHooks.onLivingAttack(this, par1DamageSource, par2))
 			return false;
 
@@ -44,17 +44,17 @@ public abstract class EntityCharacterBase extends EntityLiving {
 		else {
 			entityAge = 0;
 
-			if (health <= 0)
+			if (this.getHealth() <= 0)
 				return false;
 			else if (par1DamageSource.isFireDamage() && this.isPotionActive(Potion.fireResistance))
 				return false;
 			else {
 				if ((par1DamageSource == DamageSource.anvil || par1DamageSource == DamageSource.fallingBlock) && this.getCurrentItemOrArmor(4) != null) {
-					this.getCurrentItemOrArmor(4).damageItem(par2 * 4 + rand.nextInt(par2 * 2), this);
+					this.getCurrentItemOrArmor(4).damageItem((int)(par2 * 4) + rand.nextInt((int)(par2*2)), this);
 					par2 = (int)(par2 * 0.75F);
 				}
 
-				limbYaw = 1.5F;
+				limbSwingAmount = 1.5F;
 				boolean flag = true;
 
 				if (hurtResistantTime > maxHurtResistantTime / 2.0F) {
@@ -67,7 +67,7 @@ public abstract class EntityCharacterBase extends EntityLiving {
 				}
 				else {
 					lastDamage = par2;
-					prevHealth = health;
+					prevHealth = this.getHealth();
 					hurtResistantTime = maxHurtResistantTime;
 					this.damageEntity(par1DamageSource, (int)(par2*this.getSpecies().getHurtability()));
 					hurtTime = maxHurtTime = 10;
@@ -77,8 +77,8 @@ public abstract class EntityCharacterBase extends EntityLiving {
 				Entity entity = par1DamageSource.getEntity();
 
 				if (entity != null) {
-					if (entity instanceof EntityLiving)
-						this.setRevengeTarget((EntityLiving)entity);
+					if (entity instanceof EntityLivingBase)
+						this.setRevengeTarget((EntityLivingBase)entity);
 
 					if (entity instanceof EntityPlayer) {
 						recentlyHit = 100;
@@ -114,7 +114,7 @@ public abstract class EntityCharacterBase extends EntityLiving {
 						attackedAtYaw = (int)(Math.random() * 2.0D) * 180;
 				}
 
-				if (health <= 0) {
+				if (this.getHealth() <= 0) {
 					if (flag)
 						this.playSound(this.getDeathSound(), this.getSoundVolume(), this.getSoundPitch());
 					this.onDeath(par1DamageSource);
