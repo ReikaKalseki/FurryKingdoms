@@ -110,4 +110,9 @@ public class FurryKingdoms extends DragonAPIMod {
 	public String getVersionName() {
 		return null;
 	}
+
+	@Override
+	public ModLogger getModLogger() {
+		return logger;
+	}
 }
