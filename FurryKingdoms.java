@@ -63,7 +63,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	}
 
 	private static void addBlocks() {
-		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks, logger.shouldLog());
+		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks);
 		for (int i = 0; i < FurryTiles.TEList.length; i++)
 			GameRegistry.registerTileEntity(FurryTiles.TEList[i].getTEClass(), "Furry"+FurryTiles.TEList[i].getName());
 	}
