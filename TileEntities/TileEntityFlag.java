@@ -29,8 +29,8 @@ public class TileEntityFlag extends FurryTileEntity {
 	@Override
 	public void animateWithTick(World world, int x, int y, int z) {
 		int mult = 1;
-		phi1 += par5Random.nextFloat()*dir1*mult;
-		phi2 += par5Random.nextFloat()*dir2*mult;
+		phi1 += rand.nextFloat()*dir1*mult;
+		phi2 += rand.nextFloat()*dir2*mult;
 		if (phi1 >= MAXANGLE) {
 			dir1 = -1;
 		}
