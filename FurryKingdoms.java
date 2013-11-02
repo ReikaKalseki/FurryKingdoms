@@ -54,6 +54,9 @@ public class FurryKingdoms extends DragonAPIMod {
 		config.loadSubfolderedConfigFile(evt);
 		config.initProps(evt);
 		logger = new ModLogger(instance, FurryOptions.LOGLOADING.getState(), FurryOptions.DEBUGMODE.getState(), false);
+
+		ReikaRegistryHelper.setupModData(instance, evt);
+		ReikaRegistryHelper.setupVersionChecking(evt);
 	}
 
 	@Override
