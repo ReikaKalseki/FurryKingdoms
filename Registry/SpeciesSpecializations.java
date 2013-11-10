@@ -11,7 +11,7 @@ package Reika.FurryKingdoms.Registry;
 
 import java.util.HashMap;
 
-import Reika.DragonAPI.Auxiliary.ModList;
+import Reika.DragonAPI.ModList;
 
 public class SpeciesSpecializations {
 
