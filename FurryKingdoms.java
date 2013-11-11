@@ -35,6 +35,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 clientPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = null.class),
 serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = null.class)*/)
 
+//DimensionManager
 public class FurryKingdoms extends DragonAPIMod {
 
 	@Instance("FurryKingdoms")
