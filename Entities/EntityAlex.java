@@ -11,7 +11,7 @@ package Reika.FurryKingdoms.Entities;
 
 import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.EntityCharacterBase;
-import Reika.FurryKingdoms.Registry.SpeciesTypes;
+import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public class EntityAlex extends EntityCharacterBase {
 
@@ -20,7 +20,7 @@ public class EntityAlex extends EntityCharacterBase {
 	}
 
 	@Override
-	public SpeciesTypes getSpecies() {
-		return SpeciesTypes.DRAGON;
+	public SpeciesType getSpecies() {
+		return SpeciesType.DRAGON;
 	}
 }

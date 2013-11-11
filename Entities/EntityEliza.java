@@ -11,7 +11,7 @@ package Reika.FurryKingdoms.Entities;
 
 import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.EntityCharacterBase;
-import Reika.FurryKingdoms.Registry.SpeciesTypes;
+import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public class EntityEliza extends EntityCharacterBase {
 
@@ -20,7 +20,7 @@ public class EntityEliza extends EntityCharacterBase {
 	}
 
 	@Override
-	public SpeciesTypes getSpecies() {
-		return SpeciesTypes.REPTILE;
+	public SpeciesType getSpecies() {
+		return SpeciesType.REPTILE;
 	}
 }

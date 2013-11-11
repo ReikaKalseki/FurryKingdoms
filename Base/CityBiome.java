@@ -7,20 +7,18 @@
  * Distribution of the software in any form is only allowed with
  * explicit, prior permission from the owner.
  ******************************************************************************/
-package Reika.FurryKingdoms.Entities;
+package Reika.FurryKingdoms.Base;
 
-import net.minecraft.world.World;
-import Reika.FurryKingdoms.Base.EntityCharacterBase;
+import net.minecraft.world.biome.BiomeGenBase;
 import Reika.FurryKingdoms.Registry.SpeciesType;
 
-public class EntityJasonFX extends EntityCharacterBase {
+public class CityBiome extends BiomeGenBase {
 
-	public EntityJasonFX(World par1World) {
-		super(par1World);
+	private final SpeciesType species;
+
+	public CityBiome(int ID, SpeciesType type) {
+		super(ID);
+		species = type;
 	}
 
-	@Override
-	public SpeciesType getSpecies() {
-		return SpeciesType.REPTILE;
-	}
 }

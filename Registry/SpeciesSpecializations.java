@@ -17,18 +17,18 @@ public class SpeciesSpecializations {
 
 	//each species specializes in certain fields (eg redstone/farming...) and possibly certain mods (eg thaum/bc/...)
 
-	private static final HashMap<SpeciesTypes, Specialization> speciesFields = new HashMap();
-	private static final HashMap<SpeciesTypes, ModList> speciesMods = new HashMap();
+	private static final HashMap<SpeciesType, Specialization> speciesFields = new HashMap();
+	private static final HashMap<SpeciesType, ModList> speciesMods = new HashMap();
 
 	class Specialization {
 
 	}
 
-	public static Specialization getSpeciesSpecialization(SpeciesTypes species) {
+	public static Specialization getSpeciesSpecialization(SpeciesType species) {
 		return speciesFields.get(species);
 	}
 
-	public static ModList getSpeciesMod(SpeciesTypes species) {
+	public static ModList getSpeciesMod(SpeciesType species) {
 		return speciesMods.get(species);
 	}
 

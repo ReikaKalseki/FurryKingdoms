@@ -14,13 +14,15 @@ import java.net.URL;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import Reika.DragonAPI.DragonAPICore;
+import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Instantiable.ControlledConfig;
+import Reika.DragonAPI.Instantiable.BiomeCollisionTracker;
 import Reika.DragonAPI.Instantiable.ModLogger;
 import Reika.DragonAPI.Libraries.ReikaRegistryHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryOptions;
 import Reika.FurryKingdoms.Registry.FurryTiles;
+import Reika.FurryKingdoms.Registry.SpeciesType;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -41,7 +43,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	@Instance("FurryKingdoms")
 	public static FurryKingdoms instance = new FurryKingdoms();
 
-	public static final ControlledConfig config = new ControlledConfig(instance, FurryOptions.optionList, FurryBlocks.blockList, null, null, 1);
+	public static final FurryConfig config = new FurryConfig(instance, FurryOptions.optionList, FurryBlocks.blockList, null, null, 1);
 
 	public static Block[] blocks = new Block[FurryBlocks.blockList.length];
 
@@ -64,6 +66,16 @@ public class FurryKingdoms extends DragonAPIMod {
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		this.addBlocks();
+		this.loadCities();
+	}
+
+	private void loadCities() {
+		for (int i = 0; i < SpeciesType.speciesList.length; i++) {
+			SpeciesType species = SpeciesType.speciesList[i];
+			int id = species.getCityBiomeID();
+			BiomeCollisionTracker.instance.addBiomeID(ModList.FURRY, id, species.getBiomeClass());
+			species.addBiome();
+		}
 	}
 
 	private static void addBlocks() {

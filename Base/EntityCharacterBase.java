@@ -18,7 +18,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import Reika.FurryKingdoms.Registry.SpeciesTypes;
+import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public abstract class EntityCharacterBase extends EntityLiving {
 
@@ -26,7 +26,7 @@ public abstract class EntityCharacterBase extends EntityLiving {
 		super(par1World);
 	}
 
-	public abstract SpeciesTypes getSpecies();
+	public abstract SpeciesType getSpecies();
 
 	public int getSpeciesMaxHealth() {
 		return this.getSpecies().getMaxHealth();
