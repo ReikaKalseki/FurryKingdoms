@@ -11,6 +11,7 @@ package Reika.FurryKingdoms.Registry;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import net.minecraft.world.biome.BiomeGenBase;
@@ -87,12 +88,14 @@ public enum SpeciesType {
 	private CityBiome createBiomeInstance() {
 		Class b = this.getBiomeClass();
 		int id = this.getCityBiomeID();
+		Class[] cs = new Class[]{int.class, SpeciesType.class};
+		Object[] o = new Object[]{id, this};
 		try {
-			Constructor c = b.getConstructor(int.class);
-			return (CityBiome)c.newInstance(id);
+			Constructor c = b.getConstructor(cs);
+			return (CityBiome)c.newInstance(o);
 		}
 		catch (NoSuchMethodException e) {
-			throw new RegistrationException(FurryKingdoms.instance, "City biome constructor not found!");
+			throw new RegistrationException(FurryKingdoms.instance, "City biome constructor "+Arrays.toString(cs)+" not found!");
 		}
 		catch (SecurityException e) {
 			throw new RegistrationException(FurryKingdoms.instance, "Security Exception!");

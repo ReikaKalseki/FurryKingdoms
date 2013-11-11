@@ -101,4 +101,8 @@ public enum FurryOptions implements ConfigList {
 		return type == null;
 	}
 
+	public static EnumRating getChatRating() {
+		return EnumRating.values()[CHATRATING.getValue()];
+	}
+
 }

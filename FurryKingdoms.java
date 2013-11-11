@@ -15,8 +15,8 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.ModList;
+import Reika.DragonAPI.Auxiliary.BiomeCollisionTracker;
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Instantiable.BiomeCollisionTracker;
 import Reika.DragonAPI.Instantiable.ModLogger;
 import Reika.DragonAPI.Libraries.ReikaRegistryHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
@@ -78,7 +78,7 @@ public class FurryKingdoms extends DragonAPIMod {
 		}
 	}
 
-	private static void addBlocks() {
+	private void addBlocks() {
 		ReikaRegistryHelper.instantiateAndRegisterBlocks(instance, FurryBlocks.blockList, blocks);
 		for (int i = 0; i < FurryTiles.TEList.length; i++)
 			GameRegistry.registerTileEntity(FurryTiles.TEList[i].getTEClass(), "Furry"+FurryTiles.TEList[i].getName());
