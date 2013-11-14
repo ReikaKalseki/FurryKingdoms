@@ -73,7 +73,7 @@ public class FurryKingdoms extends DragonAPIMod {
 		for (int i = 0; i < SpeciesType.speciesList.length; i++) {
 			SpeciesType species = SpeciesType.speciesList[i];
 			int id = species.getCityBiomeID();
-			BiomeCollisionTracker.instance.addBiomeID(ModList.FURRY, id, species.getBiomeClass());
+			BiomeCollisionTracker.instance.addBiomeID(ModList.FURRYKINGDOMS, id, species.getBiomeClass());
 			species.addBiome();
 		}
 	}
