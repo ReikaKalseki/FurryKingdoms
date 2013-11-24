@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Instantiable.ControlledConfig;
+import Reika.DragonAPI.Instantiable.IO.ControlledConfig;
 import Reika.DragonAPI.Interfaces.ConfigList;
 import Reika.DragonAPI.Interfaces.IDRegistry;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;

@@ -17,7 +17,7 @@ import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Auxiliary.BiomeCollisionTracker;
 import Reika.DragonAPI.Base.DragonAPIMod;
-import Reika.DragonAPI.Instantiable.ModLogger;
+import Reika.DragonAPI.Instantiable.IO.ModLogger;
 import Reika.DragonAPI.Libraries.ReikaRegistryHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryOptions;
