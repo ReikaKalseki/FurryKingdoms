@@ -32,8 +32,6 @@ public class FurryConfig extends ControlledConfig {
 
 	private int[] cityIDs = new int[SpeciesType.speciesList.length];
 
-	public static final boolean debugmode = false;
-
 	//Initialization of the config
 	@Override
 	public void initProps(FMLPreInitializationEvent event) {
@@ -80,13 +78,13 @@ public class FurryConfig extends ControlledConfig {
 
 				for (int i = 0; i < FurryBlocks.blockList.length; i++) {
 					String name = FurryBlocks.blockList[i].getBlockVariableName();
-					blockIDs[i] = config.get("Machine Block IDs", name, 490+i).getInt();
+					blockIDs[i] = config.get("Block IDs", name, FurryBlocks.blockList[i].getDefaultID()).getInt();
 					p.println(name+": "+String.valueOf(blockIDs[i]));
 				}
 
 				for (int i = 0; i < FurryItems.itemList.length; i++) {
 					String name = FurryItems.itemList[i].getBasicName();
-					itemIDs[i] = config.get("Item IDs", name, 30500+i).getInt();
+					itemIDs[i] = config.get("Item IDs", name, FurryItems.itemList[i].getDefaultID()).getInt();
 					p.println(name+": "+String.valueOf(itemIDs[i]));
 				}
 
