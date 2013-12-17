@@ -12,12 +12,11 @@ package Reika.FurryKingdoms.Registry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import Reika.DragonAPI.Interfaces.IDRegistry;
-import Reika.DragonAPI.Interfaces.RegistrationList;
+import Reika.DragonAPI.Interfaces.RegistryEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 
-public enum FurryItems implements RegistrationList, IDRegistry {
+public enum FurryItems implements RegistryEnum {
 
 	NULL("", null);
 

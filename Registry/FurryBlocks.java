@@ -12,13 +12,12 @@ package Reika.FurryKingdoms.Registry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemBlock;
-import Reika.DragonAPI.Interfaces.IDRegistry;
-import Reika.DragonAPI.Interfaces.RegistrationList;
+import Reika.DragonAPI.Interfaces.RegistryEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.Blocks.BlockTE;
 
-public enum FurryBlocks implements RegistrationList, IDRegistry {
+public enum FurryBlocks implements RegistryEnum {
 
 	TILEENTITY(BlockTE.class);
 
