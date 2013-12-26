@@ -9,20 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import Reika.DragonAPI.Base.DragonAPIMod;
 import Reika.DragonAPI.Instantiable.IO.ControlledConfig;
 import Reika.DragonAPI.Interfaces.ConfigList;
 import Reika.DragonAPI.Interfaces.IDRegistry;
-import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
-import Reika.FurryKingdoms.Registry.FurryBlocks;
-import Reika.FurryKingdoms.Registry.FurryItems;
-import Reika.FurryKingdoms.Registry.FurryOptions;
 import Reika.FurryKingdoms.Registry.SpeciesType;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class FurryConfig extends ControlledConfig {
 
@@ -34,21 +25,13 @@ public class FurryConfig extends ControlledConfig {
 
 	//Initialization of the config
 	@Override
-	public void initProps(FMLPreInitializationEvent event) {
-
-		super.initProps(event);
-
-		config.load();
+	protected void loadAdditionalData() {
 		for (int i = 0; i < SpeciesType.speciesList.length; i++) {
 			String name = SpeciesType.speciesList[i].name();
 			cityIDs[i] = config.get("City Biome IDs", name, 100+i).getInt();
 		}
-
-		/*******************************/
-		//save the data
-		config.save();
 	}
-
+	/*
 	@Override
 	protected void resetConfigFile() {
 		String path = this.getConfigPath()+"_Old_Config_Backup.txt";
@@ -96,7 +79,7 @@ public class FurryConfig extends ControlledConfig {
 			e.printStackTrace();
 		}
 		configFile.delete();
-	}
+	}*/
 
 	public int getCityID(int ordinal) {
 		return cityIDs[ordinal];
