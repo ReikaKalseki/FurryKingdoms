@@ -14,7 +14,6 @@ import java.net.URL;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import Reika.DragonAPI.DragonAPICore;
-import Reika.DragonAPI.ModList;
 import Reika.DragonAPI.Auxiliary.BiomeCollisionTracker;
 import Reika.DragonAPI.Base.DragonAPIMod;
 import Reika.DragonAPI.Instantiable.IO.ModLogger;
@@ -73,7 +72,7 @@ public class FurryKingdoms extends DragonAPIMod {
 		for (int i = 0; i < SpeciesType.speciesList.length; i++) {
 			SpeciesType species = SpeciesType.speciesList[i];
 			int id = species.getCityBiomeID();
-			BiomeCollisionTracker.instance.addBiomeID(ModList.FURRYKINGDOMS, id, species.getBiomeClass());
+			BiomeCollisionTracker.instance.addBiomeID(instance, id, species.getBiomeClass());
 			species.addBiome();
 		}
 	}

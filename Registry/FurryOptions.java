@@ -105,4 +105,24 @@ public enum FurryOptions implements ConfigList {
 		return EnumRating.values()[CHATRATING.getValue()];
 	}
 
+	@Override
+	public boolean getDefaultState() {
+		return defaultState;
+	}
+
+	@Override
+	public int getDefaultValue() {
+		return defaultValue;
+	}
+
+	@Override
+	public float getDefaultFloat() {
+		return defaultFloat;
+	}
+
+	@Override
+	public boolean isEnforcingDefaults() {
+		return false;
+	}
+
 }
