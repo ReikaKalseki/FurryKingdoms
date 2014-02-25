@@ -39,51 +39,53 @@ public class RenderFlag extends FurryRenderBase {
 		v5.startDrawingQuads();
 		v5.setNormal(0, -1, 0);
 		v5.setColorOpaque(255, 255, 255);
-		for (int i = 0; i < 4; i++) {
-			Icon ico = te.getRootTexture();
-			float u = ico.getMinU();
-			float v = ico.getMinV();
-			float du = ico.getMaxU();
-			float dv = ico.getMaxV();
+		if (te.hasValidFlag()) {
+			for (int i = 0; i < 4; i++) {
+				Icon ico = te.getRootTexture();
+				float u = ico.getMinU();
+				float v = ico.getMinV();
+				float du = ico.getMaxU();
+				float dv = ico.getMaxV();
 
-			float d = i*0.25F;
-			float d1 = (i+1)*0.25F;
-			float t = d*(du-u);
-			float t1 = d1*(du-u);
-			float a = System.currentTimeMillis()%360;
-			double f = i == 0 ? 0 : te.offsets[i];
-			double f1 = te.offsets[i+1];
+				float d = i*0.25F;
+				float d1 = (i+1)*0.25F;
+				float t = d*(du-u);
+				float t1 = d1*(du-u);
+				float a = System.currentTimeMillis()%360;
+				double f = i == 0 ? 0 : te.offsets[i];
+				double f1 = te.offsets[i+1];
 
-			v5.addVertexWithUV(d, 0, f, u+t, v);
-			v5.addVertexWithUV(d1, 0, f1, u+t1, v);
-			v5.addVertexWithUV(d1, 1, f1, u+t1, dv);
-			v5.addVertexWithUV(d, 1, f, u+t, dv);
+				v5.addVertexWithUV(d, 0, f, u+t, v);
+				v5.addVertexWithUV(d1, 0, f1, u+t1, v);
+				v5.addVertexWithUV(d1, 1, f1, u+t1, dv);
+				v5.addVertexWithUV(d, 1, f, u+t, dv);
 
-			v5.addVertexWithUV(d, 1, f, u+t, dv);
-			v5.addVertexWithUV(d1, 1, f1, u+t1, dv);
-			v5.addVertexWithUV(d1, 0, f1, u+t1, v);
-			v5.addVertexWithUV(d, 0, f, u+t, v);
+				v5.addVertexWithUV(d, 1, f, u+t, dv);
+				v5.addVertexWithUV(d1, 1, f1, u+t1, dv);
+				v5.addVertexWithUV(d1, 0, f1, u+t1, v);
+				v5.addVertexWithUV(d, 0, f, u+t, v);
 
-			f = te.offsets[4+i];
-			f1 = i == 3 ? te.offsets[0] : te.offsets[4+i+1];
+				f = te.offsets[4+i];
+				f1 = i == 3 ? te.offsets[0] : te.offsets[4+i+1];
 
-			ico = te.getEndTexture();
-			u = ico.getMinU();
-			v = ico.getMinV();
-			du = ico.getMaxU();
-			dv = ico.getMaxV();
-			t = d*(du-u);
-			t1 = d1*(du-u);
+				ico = te.getEndTexture();
+				u = ico.getMinU();
+				v = ico.getMinV();
+				du = ico.getMaxU();
+				dv = ico.getMaxV();
+				t = d*(du-u);
+				t1 = d1*(du-u);
 
-			v5.addVertexWithUV(d+1, 0, f, u+t, v);
-			v5.addVertexWithUV(d1+1, 0, f1, u+t1, v);
-			v5.addVertexWithUV(d1+1, 1, f1, u+t1, dv);
-			v5.addVertexWithUV(d+1, 1, f, u+t, dv);
+				v5.addVertexWithUV(d+1, 0, f, u+t, v);
+				v5.addVertexWithUV(d1+1, 0, f1, u+t1, v);
+				v5.addVertexWithUV(d1+1, 1, f1, u+t1, dv);
+				v5.addVertexWithUV(d+1, 1, f, u+t, dv);
 
-			v5.addVertexWithUV(d+1, 1, f, u+t, dv);
-			v5.addVertexWithUV(d1+1, 1, f1, u+t1, dv);
-			v5.addVertexWithUV(d1+1, 0, f1, u+t1, v);
-			v5.addVertexWithUV(d+1, 0, f, u+t, v);
+				v5.addVertexWithUV(d+1, 1, f, u+t, dv);
+				v5.addVertexWithUV(d1+1, 1, f1, u+t1, dv);
+				v5.addVertexWithUV(d1+1, 0, f1, u+t1, v);
+				v5.addVertexWithUV(d+1, 0, f, u+t, v);
+			}
 		}
 
 		Icon ico = Block.blockIron.getIcon(0, 0);

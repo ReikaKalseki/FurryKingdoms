@@ -10,16 +10,15 @@
 package Reika.FurryKingdoms.TileEntities;
 
 import net.minecraft.block.Block;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
-import Reika.FurryKingdoms.Base.FurryTileEntity;
+import Reika.FurryKingdoms.Base.InventoriedFurryTileEntity;
+import Reika.FurryKingdoms.Registry.FurryItems;
 
-public class TileEntityFlag extends FurryTileEntity {
+public class TileEntityFlag extends InventoriedFurryTileEntity {
 
 	public static final float MAXANGLE = 45;
-
-	//need some variable to control internal flag type
 
 	public float[] offsets = {0F, 0.0625F, 0.125F, 0.0625F, 0F, -0.0625F, -0.125F, -0.0625F};
 	private boolean[] sides = {true, true, false, false, false, false, true, true};
@@ -54,18 +53,22 @@ public class TileEntityFlag extends FurryTileEntity {
 		return Block.bedrock.getIcon(0, 0);
 	}
 
-	@Override
-	public void writeToNBT(NBTTagCompound NBT)
-	{
-		super.writeToNBT(NBT);
-
+	public boolean hasValidFlag() {
+		return inv[0] != null && inv[0].itemID == FurryItems.FLAG.getShiftedItemID();
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound NBT)
-	{
-		super.readFromNBT(NBT);
+	public boolean canExtractItem(int i, ItemStack is, int j) {
+		return false;
+	}
 
+	@Override
+	public int getSizeInventory() {
+		return 1;
+	}
 
+	@Override
+	public boolean isItemValidForSlot(int i, ItemStack is) {
+		return false;
 	}
 }
