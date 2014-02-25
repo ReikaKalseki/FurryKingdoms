@@ -9,7 +9,9 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
+import net.minecraft.util.AxisAlignedBB;
 import Reika.DragonAPI.Base.TileEntityBase;
+import Reika.DragonAPI.Libraries.ReikaAABBHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryTiles;
 
@@ -33,5 +35,11 @@ public abstract class FurryTileEntity extends TileEntityBase {
 	@Override
 	public boolean shouldRenderInPass(int pass) {
 		return pass == 0;
+	}
+
+	@Override
+	public AxisAlignedBB getRenderBoundingBox()
+	{
+		return ReikaAABBHelper.getBlockAABB(xCoord, yCoord, zCoord).expand(2, 0, 2);
 	}
 }

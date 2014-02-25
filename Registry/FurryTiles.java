@@ -16,16 +16,22 @@ import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
 
 public enum FurryTiles {
 
-	FLAG("Flag", TileEntityFlag.class);
+	FLAG("Flag", TileEntityFlag.class, "RenderFlag");
 
 	private Class te;
 	private String name;
+	private String render;
 
-	public static final FurryTiles[] TEList = FurryTiles.values();
+	public static final FurryTiles[] TEList = values();
 
 	private FurryTiles(String n, Class<? extends TileEntity> cl) {
+		this(n, cl, null);
+	}
+
+	private FurryTiles(String n, Class<? extends TileEntity> cl, String r) {
 		te = cl;
 		name = n;
+		render = r;
 	}
 
 	public static TileEntity createTEFromMetadata(int meta) {
@@ -49,6 +55,14 @@ public enum FurryTiles {
 
 	public String getName() {
 		return name;
+	}
+
+	public boolean hasRender() {
+		return render != null;
+	}
+
+	public String getRenderer() {
+		return "Reika.FurryKingdoms.Renders."+render;
 	}
 
 }

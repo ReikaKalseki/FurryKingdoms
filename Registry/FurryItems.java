@@ -15,19 +15,22 @@ import net.minecraft.item.ItemStack;
 import Reika.DragonAPI.Interfaces.RegistryEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
+import Reika.FurryKingdoms.Base.ItemFurryBasic;
 
 public enum FurryItems implements RegistryEnum {
 
-	NULL("", null);
+	FLAG(0, "", ItemFurryBasic.class);
 
 	private String name;
 	private Class itemClass;
+	private int index;
 
 	public static final FurryItems[] itemList = FurryItems.values();
 
-	private FurryItems(String n, Class<? extends Item> cl) {
+	private FurryItems(int index, String n, Class<? extends Item> cl) {
 		name = n;
 		itemClass = cl;
+		this.index = index;
 	}
 
 	public ItemStack getStackOf() {
@@ -132,6 +135,14 @@ public enum FurryItems implements RegistryEnum {
 	@Override
 	public boolean overwritingItem() {
 		return false;
+	}
+
+	public int getSpriteIndex() {
+		return index;
+	}
+
+	public int getSpriteSheet() {
+		return index/256;
 	}
 
 }

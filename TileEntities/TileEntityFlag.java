@@ -9,6 +9,9 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.TileEntities;
 
+import net.minecraft.block.Block;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.FurryTileEntity;
 
@@ -16,10 +19,10 @@ public class TileEntityFlag extends FurryTileEntity {
 
 	public static final float MAXANGLE = 45;
 
-	private float phi1;
-	private float phi2;
-	private int dir1 = 1;
-	private int dir2 = -1;
+	//need some variable to control internal flag type
+
+	public float[] offsets = {0F, 0.0625F, 0.125F, 0.0625F, 0F, -0.0625F, -0.125F, -0.0625F};
+	private boolean[] sides = {true, true, false, false, false, false, true, true};
 
 	@Override
 	public void updateEntity(World world, int x, int y, int z, int meta) {
@@ -28,20 +31,41 @@ public class TileEntityFlag extends FurryTileEntity {
 
 	@Override
 	public void animateWithTick(World world, int x, int y, int z) {
-		int mult = 1;
-		phi1 += rand.nextFloat()*dir1*mult;
-		phi2 += rand.nextFloat()*dir2*mult;
-		if (phi1 >= MAXANGLE) {
-			dir1 = -1;
+		float f = 0.0625F;
+		for (int i = 0; i < offsets.length; i++) {
+			if (sides[i]) {
+				offsets[i] += f;
+				if (offsets[i] >= 0.125F)
+					sides[i] = false;
+			}
+			else {
+				offsets[i] -= f;
+				if (offsets[i] <= -0.125F)
+					sides[i] = true;
+			}
 		}
-		if (phi1 <= -MAXANGLE) {
-			dir1 = 1;
-		}
-		if (phi2 >= MAXANGLE) {
-			dir2 = -1;
-		}
-		if (phi2 <= -MAXANGLE) {
-			dir2 = 1;
-		}
+	}
+
+	public Icon getRootTexture() {
+		return Block.cloth.getIcon(0, 0);
+	}
+
+	public Icon getEndTexture() {
+		return Block.bedrock.getIcon(0, 0);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound NBT)
+	{
+		super.writeToNBT(NBT);
+
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound NBT)
+	{
+		super.readFromNBT(NBT);
+
+
 	}
 }

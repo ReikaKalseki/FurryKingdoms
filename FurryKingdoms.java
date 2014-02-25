@@ -25,6 +25,7 @@ import Reika.FurryKingdoms.Registry.SpeciesType;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -50,6 +51,9 @@ public class FurryKingdoms extends DragonAPIMod {
 
 	public static ModLogger logger;
 
+	@SidedProxy(clientSide="Reika.FurryKingdoms.FurryClient", serverSide="Reika.FurryKingdoms.FurryCommon")
+	public static FurryCommon proxy;
+
 	@Override
 	@EventHandler
 	public void preload(FMLPreInitializationEvent evt) {
@@ -66,6 +70,8 @@ public class FurryKingdoms extends DragonAPIMod {
 	public void load(FMLInitializationEvent event) {
 		this.addBlocks();
 		this.loadCities();
+
+		proxy.registerRenderers();
 	}
 
 	private void loadCities() {
