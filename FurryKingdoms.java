@@ -30,6 +30,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod( modid = "FurryKingdoms", name="Furry Kingdoms", version="beta", certificateFingerprint = "@GET_FINGERPRINT@", dependencies="required-after:DragonAPI")
@@ -72,6 +73,8 @@ public class FurryKingdoms extends DragonAPIMod {
 		this.loadCities();
 
 		proxy.registerRenderers();
+
+		NetworkRegistry.instance().registerGuiHandler(instance, new FurryGuiHandler());
 	}
 
 	private void loadCities() {
