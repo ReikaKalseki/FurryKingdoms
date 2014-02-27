@@ -15,11 +15,11 @@ import net.minecraft.item.ItemStack;
 import Reika.DragonAPI.Interfaces.RegistryEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.FurryKingdoms.Base.ItemFurryBasic;
+import Reika.FurryKingdoms.ItemFlag;
 
 public enum FurryItems implements RegistryEnum {
 
-	FLAG(0, "", ItemFurryBasic.class);
+	FLAG(0, "item.furryflag", ItemFlag.class);
 
 	private String name;
 	private Class itemClass;
@@ -43,12 +43,12 @@ public enum FurryItems implements RegistryEnum {
 
 	@Override
 	public Class[] getConstructorParamTypes() {
-		return new Class[]{int.class};
+		return new Class[]{int.class, int.class};
 	}
 
 	@Override
 	public Object[] getConstructorParams() {
-		return new Object[]{this.getItemID()};
+		return new Object[]{this.getItemID(), this.getSpriteIndex()};
 	}
 
 	@Override

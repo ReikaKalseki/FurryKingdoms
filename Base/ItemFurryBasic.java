@@ -12,26 +12,30 @@ package Reika.FurryKingdoms.Base;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import Reika.DragonAPI.Interfaces.IndexedItemSprites;
+import Reika.FurryKingdoms.FurryKingdoms;
 
 public class ItemFurryBasic extends Item implements IndexedItemSprites {
 
-	public ItemFurryBasic(int par1) {
+	private int texIndex;
+
+	public ItemFurryBasic(int par1, int index) {
 		super(par1);
+		this.setCreativeTab(FurryKingdoms.tab);
 	}
 
 	@Override
 	public int getItemSpriteIndex(ItemStack is) {
-		return 0;
+		return texIndex;
 	}
 
 	@Override
 	public String getTexture(ItemStack is) {
-		return null;
+		return "Textures/Items/items.png";
 	}
 
 	@Override
 	public Class getTextureReferenceClass() {
-		return null;
+		return FurryKingdoms.class;
 	}
 
 }

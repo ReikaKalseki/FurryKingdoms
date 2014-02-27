@@ -14,12 +14,14 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import Reika.DragonAPI.Libraries.ReikaAABBHelper;
+import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.Registry.FurryTiles;
 
@@ -57,6 +59,7 @@ public class BlockTE extends Block {
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer ep, int par6, float par7, float par8, float par9) {
+		ep.openGui(FurryKingdoms.instance, 0, world, x, y, z);
 		return super.onBlockActivated(world, x, y, z, ep, par6, par7, par8, par9);
 	}
 
@@ -67,6 +70,9 @@ public class BlockTE extends Block {
 
 	@Override
 	public final void breakBlock(World world, int x, int y, int z, int par5, int par6) {
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+		if (te instanceof IInventory)
+			ReikaItemHelper.dropInventory(world, x, y, z);
 		super.breakBlock(world, x, y, z, par5, par6);
 	}
 

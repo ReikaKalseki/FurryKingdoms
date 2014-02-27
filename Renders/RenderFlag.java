@@ -19,6 +19,7 @@ import org.lwjgl.opengl.GL12;
 
 import Reika.DragonAPI.Interfaces.RenderFetcher;
 import Reika.DragonAPI.Libraries.IO.ReikaTextureHelper;
+import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.Base.FurryRenderBase;
 import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
 
@@ -28,7 +29,6 @@ public class RenderFlag extends FurryRenderBase {
 	public void renderTileEntityAt(TileEntity tile, double par2, double par4, double par6, float par8) {
 		TileEntityFlag te = (TileEntityFlag)tile;
 
-		ReikaTextureHelper.bindTerrainTexture();
 		GL11.glPushMatrix();
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -39,19 +39,32 @@ public class RenderFlag extends FurryRenderBase {
 		v5.startDrawingQuads();
 		v5.setNormal(0, -1, 0);
 		v5.setColorOpaque(255, 255, 255);
-		if (te.hasValidFlag()) {
-			for (int i = 0; i < 4; i++) {
-				Icon ico = te.getRootTexture();
-				float u = ico.getMinU();
-				float v = ico.getMinV();
-				float du = ico.getMaxU();
-				float dv = ico.getMaxV();
 
+		if (te.hasValidFlag()) {
+			float u = 0;
+			float v = 0;
+			float du = 0.5F;
+			float dv = 1;
+			float dd = du-u;
+			if (te.isFlagWhite()) {
+				ReikaTextureHelper.bindTerrainTexture();
+				Icon ico = Block.cloth.getIcon(0, 0);
+				u = ico.getMinU();
+				v = ico.getMinV();
+				du = ico.getMaxU();
+				dv = ico.getMaxV();
+				dd = du-u;
+				du = u;
+			}
+			else {
+				ReikaTextureHelper.bindTexture(FurryKingdoms.class, te.getFlagTexture());
+			}
+
+			for (int i = 0; i < 4; i++) {
 				float d = i*0.25F;
 				float d1 = (i+1)*0.25F;
-				float t = d*(du-u);
-				float t1 = d1*(du-u);
-				float a = System.currentTimeMillis()%360;
+				float t = d*dd;
+				float t1 = d1*dd;
 				double f = i == 0 ? 0 : te.offsets[i];
 				double f1 = te.offsets[i+1];
 
@@ -68,26 +81,23 @@ public class RenderFlag extends FurryRenderBase {
 				f = te.offsets[4+i];
 				f1 = i == 3 ? te.offsets[0] : te.offsets[4+i+1];
 
-				ico = te.getEndTexture();
-				u = ico.getMinU();
-				v = ico.getMinV();
-				du = ico.getMaxU();
-				dv = ico.getMaxV();
-				t = d*(du-u);
-				t1 = d1*(du-u);
+				v5.addVertexWithUV(d+1, 0, f, du+t, v);
+				v5.addVertexWithUV(d1+1, 0, f1, du+t1, v);
+				v5.addVertexWithUV(d1+1, 1, f1, du+t1, dv);
+				v5.addVertexWithUV(d+1, 1, f, du+t, dv);
 
-				v5.addVertexWithUV(d+1, 0, f, u+t, v);
-				v5.addVertexWithUV(d1+1, 0, f1, u+t1, v);
-				v5.addVertexWithUV(d1+1, 1, f1, u+t1, dv);
-				v5.addVertexWithUV(d+1, 1, f, u+t, dv);
-
-				v5.addVertexWithUV(d+1, 1, f, u+t, dv);
-				v5.addVertexWithUV(d1+1, 1, f1, u+t1, dv);
-				v5.addVertexWithUV(d1+1, 0, f1, u+t1, v);
-				v5.addVertexWithUV(d+1, 0, f, u+t, v);
+				v5.addVertexWithUV(d+1, 1, f, du+t, dv);
+				v5.addVertexWithUV(d1+1, 1, f1, du+t1, dv);
+				v5.addVertexWithUV(d1+1, 0, f1, du+t1, v);
+				v5.addVertexWithUV(d+1, 0, f, du+t, v);
 			}
 		}
 
+		v5.draw();
+		v5.startDrawingQuads();
+		v5.setNormal(0, -1, 0);
+		v5.setColorOpaque(255, 255, 255);
+		ReikaTextureHelper.bindTerrainTexture();
 		Icon ico = Block.blockIron.getIcon(0, 0);
 		float u = ico.getMinU();
 		float v = ico.getMinV();

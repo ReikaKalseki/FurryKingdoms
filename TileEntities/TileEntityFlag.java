@@ -9,9 +9,7 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.TileEntities;
 
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.InventoriedFurryTileEntity;
 import Reika.FurryKingdoms.Registry.FurryItems;
@@ -45,12 +43,12 @@ public class TileEntityFlag extends InventoriedFurryTileEntity {
 		}
 	}
 
-	public Icon getRootTexture() {
-		return Block.cloth.getIcon(0, 0);
+	public String getFlagTexture() {
+		return "Textures/Misc/flag_"+inv[0].stackTagCompound.getInteger("img")+".png";
 	}
 
-	public Icon getEndTexture() {
-		return Block.bedrock.getIcon(0, 0);
+	public boolean isFlagWhite() {
+		return inv[0].stackTagCompound == null || !inv[0].stackTagCompound.hasKey("img");
 	}
 
 	public boolean hasValidFlag() {
