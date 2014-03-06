@@ -80,9 +80,9 @@ public abstract class InventoriedFurryTileEntity extends FurryTileEntity impleme
 	}
 
 	@Override
-	protected void readSyncTag(NBTTagCompound NBT)
+	public void readFromNBT(NBTTagCompound NBT)
 	{
-		super.readSyncTag(NBT);
+		super.readFromNBT(NBT);
 		NBTTagList nbttaglist = NBT.getTagList("Items");
 		inv = new ItemStack[this.getSizeInventory()];
 
@@ -99,9 +99,9 @@ public abstract class InventoriedFurryTileEntity extends FurryTileEntity impleme
 	}
 
 	@Override
-	protected void writeSyncTag(NBTTagCompound NBT)
+	public void writeToNBT(NBTTagCompound NBT)
 	{
-		super.writeSyncTag(NBT);
+		super.writeToNBT(NBT);
 		NBTTagList nbttaglist = new NBTTagList();
 
 		for (int i = 0; i < inv.length; i++)
