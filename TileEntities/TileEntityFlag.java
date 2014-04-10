@@ -27,7 +27,7 @@ public class TileEntityFlag extends InventoriedFurryTileEntity {
 	}
 
 	@Override
-	public void animateWithTick(World world, int x, int y, int z) {
+	protected void animateWithTick(World world, int x, int y, int z) {
 		float f = 0.0625F;
 		for (int i = 0; i < offsets.length; i++) {
 			if (sides[i]) {
