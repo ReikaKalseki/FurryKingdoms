@@ -42,4 +42,9 @@ public abstract class FurryTileEntity extends TileEntityBase {
 	{
 		return ReikaAABBHelper.getBlockAABB(xCoord, yCoord, zCoord).expand(2, 0, 2);
 	}
+
+	@Override
+	public int getRedstoneOverride() {
+		return 0;
+	}
 }
