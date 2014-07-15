@@ -23,9 +23,7 @@ public enum FurryOptions implements ConfigList {
 	ENABLEPORTALS("Enable Portals", true),
 	ENABLETELEPORT("Enable Teleport", true),
 	COMMUNICATIONS("Enable Chat", true),
-	UNPROVOKEDATTACK("Enable Unprovoked Attacks", true),
-	LOGLOADING("Console Loading Info", true),
-	DEBUGMODE("Debug Mode", false);
+	UNPROVOKEDATTACK("Enable Unprovoked Attacks", true);
 
 	private String label;
 	private boolean defaultState;

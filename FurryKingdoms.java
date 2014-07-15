@@ -64,7 +64,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	public void preload(FMLPreInitializationEvent evt) {
 		config.loadSubfolderedConfigFile(evt);
 		config.initProps(evt);
-		logger = new ModLogger(instance, FurryOptions.LOGLOADING.getState(), FurryOptions.DEBUGMODE.getState(), false);
+		logger = new ModLogger(instance, false);
 
 		this.basicSetup(evt);
 	}
