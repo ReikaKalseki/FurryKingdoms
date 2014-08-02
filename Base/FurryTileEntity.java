@@ -47,9 +47,4 @@ public abstract class FurryTileEntity extends TileEntityBase {
 	public int getRedstoneOverride() {
 		return 0;
 	}
-
-	@Override
-	public final boolean hasModel() {
-		return true;
-	}
 }
