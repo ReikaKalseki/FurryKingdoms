@@ -9,15 +9,16 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
+import Reika.DragonAPI.Exception.RegistrationException;
+import Reika.FurryKingdoms.FurryKingdoms;
+import Reika.FurryKingdoms.Base.CityBiome;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
 
 import net.minecraft.world.biome.BiomeGenBase;
-import Reika.DragonAPI.Exception.RegistrationException;
-import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.FurryKingdoms.Base.CityBiome;
 
 public enum SpeciesType {
 

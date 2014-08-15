@@ -9,19 +9,19 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Renders;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GL12;
-
 import Reika.DragonAPI.Interfaces.RenderFetcher;
 import Reika.DragonAPI.Libraries.IO.ReikaTextureHelper;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.Base.FurryRenderBase;
 import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
+
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
+
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
 public class RenderFlag extends FurryRenderBase {
 
@@ -48,7 +48,7 @@ public class RenderFlag extends FurryRenderBase {
 			float dd = du-u;
 			if (te.isFlagWhite()) {
 				ReikaTextureHelper.bindTerrainTexture();
-				Icon ico = Block.cloth.getIcon(0, 0);
+				IIcon ico = Blocks.wool.getIcon(0, 0);
 				u = ico.getMinU();
 				v = ico.getMinV();
 				du = ico.getMaxU();
@@ -98,7 +98,7 @@ public class RenderFlag extends FurryRenderBase {
 		v5.setNormal(0, -1, 0);
 		v5.setColorOpaque(255, 255, 255);
 		ReikaTextureHelper.bindTerrainTexture();
-		Icon ico = Block.blockIron.getIcon(0, 0);
+		IIcon ico = Blocks.iron_block.getIcon(0, 0);
 		float u = ico.getMinU();
 		float v = ico.getMinV();
 		float du = ico.getMaxU();

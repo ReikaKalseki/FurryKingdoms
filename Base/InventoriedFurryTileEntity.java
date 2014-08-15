@@ -9,13 +9,15 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
+import Reika.DragonAPI.Libraries.ReikaInventoryHelper;
+
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import Reika.DragonAPI.Libraries.ReikaInventoryHelper;
 
 public abstract class InventoriedFurryTileEntity extends FurryTileEntity implements ISidedInventory {
 
@@ -39,14 +41,28 @@ public abstract class InventoriedFurryTileEntity extends FurryTileEntity impleme
 		return ReikaInventoryHelper.getStackInSlotOnClosing(this, i);
 	}
 
-	@Override
-	public final String getInvName() {
+	public final String getInventoryName() {
 		return this.getTEName();
 	}
 
+	public void openInventory() {}
+
+	public void closeInventory() {}
+
 	@Override
-	public final boolean isInvNameLocalized() {
-		return false;
+	public final boolean hasCustomInventoryName() {
+		return true;
+	}
+
+	@Override
+	public final void markDirty() {
+		blockMetadata = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+		worldObj.markTileEntityChunkModified(xCoord, yCoord, zCoord, this);
+
+		if (this.getBlockType() != Blocks.air)
+		{
+			worldObj.func_147453_f(xCoord, yCoord, zCoord, this.getBlockType());
+		}
 	}
 
 	@Override
@@ -57,16 +73,6 @@ public abstract class InventoriedFurryTileEntity extends FurryTileEntity impleme
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer ep) {
 		return this.isStandard8mReach(ep, this);
-	}
-
-	@Override
-	public void openChest() {
-
-	}
-
-	@Override
-	public void closeChest() {
-
 	}
 
 	@Override
@@ -83,12 +89,12 @@ public abstract class InventoriedFurryTileEntity extends FurryTileEntity impleme
 	public void readFromNBT(NBTTagCompound NBT)
 	{
 		super.readFromNBT(NBT);
-		NBTTagList nbttaglist = NBT.getTagList("Items");
+		NBTTagList nbttaglist = NBT.getTagList("Items", NBT.getId());
 		inv = new ItemStack[this.getSizeInventory()];
 
 		for (int i = 0; i < nbttaglist.tagCount(); i++)
 		{
-			NBTTagCompound nbttagcompound = (NBTTagCompound)nbttaglist.tagAt(i);
+			NBTTagCompound nbttagcompound = nbttaglist.getCompoundTagAt(i);
 			byte byte0 = nbttagcompound.getByte("Slot");
 
 			if (byte0 >= 0 && byte0 < inv.length)

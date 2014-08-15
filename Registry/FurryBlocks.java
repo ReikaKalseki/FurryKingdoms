@@ -9,15 +9,17 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemBlock;
-import Reika.DragonAPI.Interfaces.RegistryEnum;
+import Reika.DragonAPI.Interfaces.BlockEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.Blocks.BlockTE;
 
-public enum FurryBlocks implements RegistryEnum {
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+
+public enum FurryBlocks implements BlockEnum {
 
 	TILEENTITY(BlockTE.class);
 
@@ -30,46 +32,21 @@ public enum FurryBlocks implements RegistryEnum {
 	}
 
 	@Override
-	public String getConfigName() {
-		return this.getBasicName();
-	}
-
-	@Override
-	public int getDefaultID() {
-		return 2000+this.ordinal();
-	}
-
-	@Override
-	public boolean isBlock() {
-		return true;
-	}
-
-	@Override
-	public boolean isItem() {
-		return false;
-	}
-
-	@Override
-	public String getCategory() {
-		return "Block IDs";
-	}
-
-	@Override
 	public Class[] getConstructorParamTypes() {
-		return new Class[]{int.class, Material.class};
+		return new Class[]{Material.class};
 	}
 
 	@Override
 	public Object[] getConstructorParams() {
-		return new Object[]{this.getBlockID(), this.getBlockMaterial()};
+		return new Object[]{this.getBlockMaterial()};
 	}
 
 	public Material getBlockMaterial() {
 		return Material.ground;
 	}
 
-	public int getBlockID() {
-		return FurryKingdoms.config.getBlockID(this.ordinal());
+	public Block getBlockInstance() {
+		return FurryKingdoms.blocks[this.ordinal()];
 	}
 
 	@Override
@@ -116,17 +93,12 @@ public enum FurryBlocks implements RegistryEnum {
 		return blockClass == null;
 	}
 
-	public int getID() {
-		return this.getBlockID();
-	}
-
-	@Override
-	public boolean overwritingItem() {
-		return false;
-	}
-
-	public String getBlockVariableName() {
+	public String getBlockInstanceName() {
 		return this.getBasicName();
+	}
+
+	public Item getItem() {
+		return Item.getItemFromBlock(this.getBlockInstance());
 	}
 
 }

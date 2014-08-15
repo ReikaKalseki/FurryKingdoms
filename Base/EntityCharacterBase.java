@@ -9,6 +9,8 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
+import Reika.FurryKingdoms.Registry.SpeciesType;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,7 +20,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public abstract class EntityCharacterBase extends EntityLiving {
 
@@ -49,8 +50,8 @@ public abstract class EntityCharacterBase extends EntityLiving {
 			else if (par1DamageSource.isFireDamage() && this.isPotionActive(Potion.fireResistance))
 				return false;
 			else {
-				if ((par1DamageSource == DamageSource.anvil || par1DamageSource == DamageSource.fallingBlock) && this.getCurrentItemOrArmor(4) != null) {
-					this.getCurrentItemOrArmor(4).damageItem((int)(par2 * 4) + rand.nextInt((int)(par2*2)), this);
+				if ((par1DamageSource == DamageSource.anvil || par1DamageSource == DamageSource.fallingBlock) && this.getEquipmentInSlot(4) != null) {
+					this.getEquipmentInSlot(4).damageItem((int)(par2 * 4) + rand.nextInt((int)(par2*2)), this);
 					par2 = (int)(par2 * 0.75F);
 				}
 

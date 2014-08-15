@@ -9,10 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.TileEntities;
 
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.InventoriedFurryTileEntity;
 import Reika.FurryKingdoms.Registry.FurryItems;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class TileEntityFlag extends InventoriedFurryTileEntity {
 
@@ -52,7 +53,7 @@ public class TileEntityFlag extends InventoriedFurryTileEntity {
 	}
 
 	public boolean hasValidFlag() {
-		return inv[0] != null && inv[0].itemID == FurryItems.FLAG.getShiftedItemID();
+		return inv[0] != null && inv[0].getItem() == FurryItems.FLAG.getItemInstance();
 	}
 
 	@Override

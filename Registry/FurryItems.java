@@ -9,17 +9,17 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import Reika.DragonAPI.Interfaces.RegistryEnum;
+import Reika.DragonAPI.Interfaces.ItemEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.ItemFlag;
 
-public enum FurryItems implements RegistryEnum {
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
-	FLAG(0, "item.furryflag", ItemFlag.class);
+public enum FurryItems implements ItemEnum {
+
+	FLAG(0, "Items.furryflag", ItemFlag.class);
 
 	private String name;
 	private Class itemClass;
@@ -34,21 +34,21 @@ public enum FurryItems implements RegistryEnum {
 	}
 
 	public ItemStack getStackOf() {
-		return new ItemStack(this.getShiftedItemID(), 1, 0);
+		return new ItemStack(this.getItemInstance(), 1, 0);
 	}
 
 	public ItemStack getStackOfMetadata(int meta) {
-		return new ItemStack(this.getShiftedItemID(), 1, meta);
+		return new ItemStack(this.getItemInstance(), 1, meta);
 	}
 
 	@Override
 	public Class[] getConstructorParamTypes() {
-		return new Class[]{int.class, int.class};
+		return new Class[]{int.class};
 	}
 
 	@Override
 	public Object[] getConstructorParams() {
-		return new Object[]{this.getItemID(), this.getSpriteIndex()};
+		return new Object[]{this.getSpriteIndex()};
 	}
 
 	@Override
@@ -81,55 +81,12 @@ public enum FurryItems implements RegistryEnum {
 		return 1;
 	}
 
-	public int getItemID() {
-		return FurryKingdoms.config.getItemID(this.ordinal());
-	}
-
-	public int getShiftedItemID() {
-		return FurryKingdoms.config.getItemID(this.ordinal())+256;
-	}
-
-	@Override
-	public Class<? extends ItemBlock> getItemBlock() {
-		return null;
-	}
-
-	@Override
-	public boolean hasItemBlock() {
-		return false;
-	}
-
-	@Override
-	public String getConfigName() {
-		return this.getBasicName();
-	}
-
-	@Override
-	public int getDefaultID() {
-		return 23000+this.ordinal();
-	}
-
-	@Override
-	public boolean isBlock() {
-		return false;
-	}
-
-	@Override
-	public boolean isItem() {
-		return true;
-	}
-
-	@Override
-	public String getCategory() {
-		return "Item IDs";
+	public Item getItemInstance() {
+		return FurryKingdoms.items[this.ordinal()];
 	}
 
 	public boolean isDummiedOut() {
 		return itemClass == null;
-	}
-
-	public int getID() {
-		return this.getItemID();
 	}
 
 	@Override

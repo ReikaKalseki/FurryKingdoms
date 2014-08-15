@@ -9,11 +9,12 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
-import net.minecraft.world.World;
 import Reika.DragonAPI.Instantiable.Rendering.ItemSpriteSheetRenderer;
 import Reika.FurryKingdoms.Auxiliary.FurryRenderList;
 import Reika.FurryKingdoms.Registry.FurryItems;
 import Reika.FurryKingdoms.Registry.FurryTiles;
+
+import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 
@@ -40,7 +41,7 @@ public class FurryClient extends FurryCommon {
 
 		for (int i = 0; i < FurryItems.itemList.length; i++) {
 			if (FurryItems.itemList[i].getSpriteIndex() > -1)
-				;//MinecraftForgeClient.registerItemRenderer(FurryItems.itemList[i].getShiftedItemID(), items[FurryItems.itemList[i].getSpriteSheet()]);
+				;//MinecraftForgeClient.registerItemRenderer(FurryItems.itemList[i].getItemInstance(), items[FurryItems.itemList[i].getSpriteSheet()]);
 		}
 	}
 

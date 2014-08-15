@@ -9,10 +9,12 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryTiles;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -25,12 +27,18 @@ public class TabFurry extends CreativeTabs {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ItemStack getIconItemStack() {
-		return new ItemStack(FurryBlocks.TILEENTITY.getBlockID(), 1, FurryTiles.FLAG.ordinal());
+		return new ItemStack(FurryBlocks.TILEENTITY.getBlockInstance(), 1, FurryTiles.FLAG.ordinal());
 	}
 
 	@Override
 	public String getTranslatedTabLabel() {
 		return "Furry Kingdoms"; //The name of the tab ingame
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Item getTabIconItem() {
+		return null;
 	}
 
 }

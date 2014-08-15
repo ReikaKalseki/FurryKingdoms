@@ -9,11 +9,13 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
-import net.minecraft.util.AxisAlignedBB;
 import Reika.DragonAPI.Base.TileEntityBase;
 import Reika.DragonAPI.Libraries.ReikaAABBHelper;
 import Reika.FurryKingdoms.Registry.FurryBlocks;
 import Reika.FurryKingdoms.Registry.FurryTiles;
+
+import net.minecraft.block.Block;
+import net.minecraft.util.AxisAlignedBB;
 
 public abstract class FurryTileEntity extends TileEntityBase {
 
@@ -23,8 +25,8 @@ public abstract class FurryTileEntity extends TileEntityBase {
 	}
 
 	@Override
-	public final int getTileEntityBlockID() {
-		return FurryBlocks.TILEENTITY.getBlockID();
+	public final Block getTileEntityBlockID() {
+		return FurryBlocks.TILEENTITY.getBlockInstance();
 	}
 
 	@Override

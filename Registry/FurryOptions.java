@@ -9,11 +9,12 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
-import net.minecraftforge.common.Configuration;
 import Reika.DragonAPI.Exception.RegistrationException;
 import Reika.DragonAPI.Interfaces.ConfigList;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.RotaryCraft.RotaryCraft;
+
+import net.minecraftforge.common.config.Configuration;
 
 public enum FurryOptions implements ConfigList {
 

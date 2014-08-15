@@ -9,17 +9,18 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import Reika.DragonAPI.Interfaces.IndexedItemSprites;
 import Reika.FurryKingdoms.FurryKingdoms;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class ItemFurryBasic extends Item implements IndexedItemSprites {
 
 	private int texIndex;
 
-	public ItemFurryBasic(int par1, int index) {
-		super(par1);
+	public ItemFurryBasic(int index) {
+		super();
 		this.setCreativeTab(FurryKingdoms.tab);
 	}
 

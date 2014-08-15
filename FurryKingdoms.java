@@ -9,11 +9,6 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
-import java.net.URL;
-
-import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.Auxiliary.BiomeCollisionTracker;
 import Reika.DragonAPI.Auxiliary.CommandableUpdateChecker;
@@ -25,6 +20,12 @@ import Reika.FurryKingdoms.Registry.FurryItems;
 import Reika.FurryKingdoms.Registry.FurryOptions;
 import Reika.FurryKingdoms.Registry.FurryTiles;
 import Reika.FurryKingdoms.Registry.SpeciesType;
+
+import java.net.URL;
+
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -32,14 +33,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod( modid = "FurryKingdoms", name="Furry Kingdoms", version="beta", certificateFingerprint = "@GET_FINGERPRINT@", dependencies="required-after:DragonAPI")
-@NetworkMod(clientSideRequired = true, serverSideRequired = true/*,
-clientPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = null.class),
-serverPacketHandlerSpec = @SidedPacketHandler(channels = { "FurryKingData" }, packetHandler = null.class)*/)
 
 //DimensionManager
 public class FurryKingdoms extends DragonAPIMod {
@@ -47,7 +44,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	@Instance("FurryKingdoms")
 	public static FurryKingdoms instance = new FurryKingdoms();
 
-	public static final FurryConfig config = new FurryConfig(instance, FurryOptions.optionList, FurryBlocks.blockList, FurryItems.itemList, null, 1);
+	public static final FurryConfig config = new FurryConfig(instance, FurryOptions.optionList, null, 1);
 
 	public static Block[] blocks = new Block[FurryBlocks.blockList.length];
 	public static Item[] items = new Item[FurryItems.itemList.length];
@@ -78,7 +75,7 @@ public class FurryKingdoms extends DragonAPIMod {
 
 		proxy.registerRenderers();
 
-		NetworkRegistry.instance().registerGuiHandler(instance, new FurryGuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new FurryGuiHandler());
 	}
 
 	private void loadCities() {

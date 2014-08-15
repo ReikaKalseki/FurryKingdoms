@@ -9,13 +9,14 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Auxiliary;
 
-import java.util.HashMap;
-
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import Reika.DragonAPI.Interfaces.RenderFetcher;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 import Reika.FurryKingdoms.Base.FurryRenderBase;
 import Reika.FurryKingdoms.Registry.FurryTiles;
+
+import java.util.HashMap;
+
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

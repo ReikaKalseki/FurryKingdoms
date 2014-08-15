@@ -9,11 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Auxiliary;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import Reika.FurryKingdoms.Registry.EnumRating;
 import Reika.FurryKingdoms.Registry.FurryOptions;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CensorController {
 

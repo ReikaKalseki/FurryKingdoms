@@ -17,8 +17,8 @@ import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public class FurryConfig extends ControlledConfig {
 
-	public FurryConfig(DragonAPIMod mod, ConfigList[] option, IDRegistry[] blocks, IDRegistry[] items, IDRegistry[] id, int cfg) {
-		super(mod, option, blocks, items, id, cfg);
+	public FurryConfig(DragonAPIMod mod, ConfigList[] option, IDRegistry[] id, int cfg) {
+		super(mod, option, id, cfg);
 	}
 
 	private int[] cityIDs = new int[SpeciesType.speciesList.length];
@@ -60,7 +60,7 @@ public class FurryConfig extends ControlledConfig {
 				}
 
 				for (int i = 0; i < FurryBlocks.blockList.length; i++) {
-					String name = FurryBlocks.blockList[i].getBlockVariableName();
+					String name = FurryBlocks.blockList[i].getBlockInstanceName();
 					blockIDs[i] = config.get("Block IDs", name, FurryBlocks.blockList[i].getDefaultID()).getInt();
 					p.println(name+": "+String.valueOf(blockIDs[i]));
 				}
