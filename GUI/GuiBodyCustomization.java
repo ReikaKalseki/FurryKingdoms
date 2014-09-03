@@ -9,10 +9,9 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.GUI;
 
-import Reika.FurryKingdoms.Container.ContainerBodyCustomization;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
+import Reika.FurryKingdoms.Container.ContainerBodyCustomization;
 
 public class GuiBodyCustomization extends GuiContainer {
 

@@ -9,11 +9,6 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Blocks;
 
-import Reika.DragonAPI.Libraries.ReikaAABBHelper;
-import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
-import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.FurryKingdoms.Registry.FurryTiles;
-
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
@@ -25,6 +20,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import Reika.DragonAPI.Libraries.ReikaAABBHelper;
+import Reika.DragonAPI.Libraries.Registry.ReikaItemHelper;
+import Reika.FurryKingdoms.FurryKingdoms;
+import Reika.FurryKingdoms.Registry.FurryTiles;
 
 public class BlockTE extends Block {
 

@@ -9,12 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Auxiliary;
 
-import Reika.FurryKingdoms.Registry.BodyParts;
-
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import Reika.FurryKingdoms.Registry.BodyParts;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class BodyAddonRenderer {

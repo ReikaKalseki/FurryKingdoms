@@ -9,12 +9,6 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Renders;
 
-import Reika.DragonAPI.Interfaces.RenderFetcher;
-import Reika.DragonAPI.Libraries.IO.ReikaTextureHelper;
-import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.FurryKingdoms.Base.FurryRenderBase;
-import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
-
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
@@ -22,6 +16,12 @@ import net.minecraft.util.IIcon;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import Reika.DragonAPI.Interfaces.RenderFetcher;
+import Reika.DragonAPI.Libraries.IO.ReikaTextureHelper;
+import Reika.FurryKingdoms.FurryKingdoms;
+import Reika.FurryKingdoms.Base.FurryRenderBase;
+import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
 
 public class RenderFlag extends FurryRenderBase {
 

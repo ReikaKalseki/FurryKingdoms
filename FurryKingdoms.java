@@ -9,6 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
+import java.net.URL;
+
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import Reika.DragonAPI.DragonAPICore;
 import Reika.DragonAPI.Auxiliary.BiomeCollisionTracker;
 import Reika.DragonAPI.Auxiliary.CommandableUpdateChecker;
@@ -20,12 +25,6 @@ import Reika.FurryKingdoms.Registry.FurryItems;
 import Reika.FurryKingdoms.Registry.FurryOptions;
 import Reika.FurryKingdoms.Registry.FurryTiles;
 import Reika.FurryKingdoms.Registry.SpeciesType;
-
-import java.net.URL;
-
-import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -63,14 +62,15 @@ public class FurryKingdoms extends DragonAPIMod {
 		config.initProps(evt);
 		logger = new ModLogger(instance, false);
 
+		this.addBlocks();
+		this.addItems();
+
 		this.basicSetup(evt);
 	}
 
 	@Override
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		this.addBlocks();
-		this.addItems();
 		this.loadCities();
 
 		proxy.registerRenderers();

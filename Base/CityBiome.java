@@ -9,9 +9,8 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
-import Reika.FurryKingdoms.Registry.SpeciesType;
-
 import net.minecraft.world.biome.BiomeGenBase;
+import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public class CityBiome extends BiomeGenBase {
 

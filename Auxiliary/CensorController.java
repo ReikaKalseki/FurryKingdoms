@@ -9,11 +9,12 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Auxiliary;
 
-import Reika.FurryKingdoms.Registry.EnumRating;
-import Reika.FurryKingdoms.Registry.FurryOptions;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
+import Reika.FurryKingdoms.Registry.EnumRating;
+import Reika.FurryKingdoms.Registry.FurryOptions;
 
 public class CensorController {
 
@@ -62,7 +63,7 @@ public class CensorController {
 			case R:
 				return rRated;
 			}
-			Thread.dumpStack();
+			ReikaJavaLibrary.dumpStack();
 			return "[INVALID STRING]";
 		}
 	}

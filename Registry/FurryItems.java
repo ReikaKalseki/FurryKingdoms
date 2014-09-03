@@ -9,13 +9,12 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import Reika.DragonAPI.Interfaces.ItemEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.ItemFlag;
-
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public enum FurryItems implements ItemEnum {
 

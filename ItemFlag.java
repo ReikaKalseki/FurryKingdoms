@@ -9,14 +9,13 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
-import Reika.FurryKingdoms.Base.ItemFurryBasic;
-
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+import Reika.FurryKingdoms.Base.ItemFurryBasic;
 
 public class ItemFlag extends ItemFurryBasic {
 

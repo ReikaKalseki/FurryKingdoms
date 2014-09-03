@@ -9,14 +9,13 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import Reika.DragonAPI.Base.OneSlotContainer;
 import Reika.FurryKingdoms.Base.FurryTileEntity;
 import Reika.FurryKingdoms.Base.GuiOneSlotInv;
 import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class FurryGuiHandler implements IGuiHandler {

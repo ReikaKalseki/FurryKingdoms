@@ -9,11 +9,10 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
+import net.minecraft.tileentity.TileEntity;
 import Reika.DragonAPI.Exception.RegistrationException;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.TileEntities.TileEntityFlag;
-
-import net.minecraft.tileentity.TileEntity;
 
 public enum FurryTiles {
 

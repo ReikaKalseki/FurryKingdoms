@@ -9,11 +9,10 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.TileEntities;
 
-import Reika.FurryKingdoms.Base.InventoriedFurryTileEntity;
-import Reika.FurryKingdoms.Registry.FurryItems;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import Reika.FurryKingdoms.Base.InventoriedFurryTileEntity;
+import Reika.FurryKingdoms.Registry.FurryItems;
 
 public class TileEntityFlag extends InventoriedFurryTileEntity {
 

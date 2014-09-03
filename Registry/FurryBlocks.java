@@ -9,15 +9,14 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
-import Reika.DragonAPI.Interfaces.BlockEnum;
-import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
-import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.FurryKingdoms.Blocks.BlockTE;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import Reika.DragonAPI.Interfaces.BlockEnum;
+import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
+import Reika.FurryKingdoms.FurryKingdoms;
+import Reika.FurryKingdoms.Blocks.BlockTE;
 
 public enum FurryBlocks implements BlockEnum {
 

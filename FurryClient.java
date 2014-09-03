@@ -9,12 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
+import net.minecraft.world.World;
 import Reika.DragonAPI.Instantiable.Rendering.ItemSpriteSheetRenderer;
 import Reika.FurryKingdoms.Auxiliary.FurryRenderList;
 import Reika.FurryKingdoms.Registry.FurryItems;
 import Reika.FurryKingdoms.Registry.FurryTiles;
-
-import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 

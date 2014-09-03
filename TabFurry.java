@@ -9,12 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms;
 
-import Reika.FurryKingdoms.Registry.FurryBlocks;
-import Reika.FurryKingdoms.Registry.FurryTiles;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import Reika.FurryKingdoms.Registry.FurryBlocks;
+import Reika.FurryKingdoms.Registry.FurryTiles;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

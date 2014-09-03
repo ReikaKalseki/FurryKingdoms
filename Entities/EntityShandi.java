@@ -9,10 +9,9 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Entities;
 
+import net.minecraft.world.World;
 import Reika.FurryKingdoms.Base.EntityCharacterBase;
 import Reika.FurryKingdoms.Registry.SpeciesType;
-
-import net.minecraft.world.World;
 
 public class EntityShandi extends EntityCharacterBase {
 

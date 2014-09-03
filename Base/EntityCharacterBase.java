@@ -9,8 +9,6 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
-import Reika.FurryKingdoms.Registry.SpeciesType;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,6 +18,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public abstract class EntityCharacterBase extends EntityLiving {
 
