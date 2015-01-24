@@ -28,7 +28,7 @@ public class FurryConfig extends ControlledConfig {
 	protected void loadAdditionalData() {
 		for (int i = 0; i < SpeciesType.speciesList.length; i++) {
 			String name = SpeciesType.speciesList[i].name();
-			cityIDs[i] = config.get("City Biome IDs", name, 100+i).getInt();
+			cityIDs[i] = config.get("City Biome IDs", name, 200+i).getInt();
 		}
 	}
 	/*

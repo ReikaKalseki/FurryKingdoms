@@ -58,7 +58,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	@Override
 	@EventHandler
 	public void preload(FMLPreInitializationEvent evt) {
-		this.verifyVersions();
+		this.verifyInstallation();
 		config.loadSubfolderedConfigFile(evt);
 		config.initProps(evt);
 		logger = new ModLogger(instance, false);
