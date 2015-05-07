@@ -9,6 +9,7 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Base;
 
+import Reika.DragonAPI.Base.TileEntityBase;
 import Reika.DragonAPI.Base.TileEntityRenderBase;
 import Reika.DragonAPI.Interfaces.TextureFetcher;
 import Reika.FurryKingdoms.FurryKingdoms;
@@ -23,6 +24,11 @@ public abstract class FurryRenderBase extends TileEntityRenderBase implements Te
 	@Override
 	protected Class getModClass() {
 		return FurryKingdoms.class;
+	}
+
+	@Override
+	protected final boolean doRenderModel(TileEntityBase te) {
+		return this.isValidMachineRenderPass(te);
 	}
 
 }
