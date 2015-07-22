@@ -11,7 +11,7 @@ package Reika.FurryKingdoms.Registry;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import Reika.DragonAPI.Interfaces.ItemEnum;
+import Reika.DragonAPI.Interfaces.Registry.ItemEnum;
 import Reika.DragonAPI.Libraries.Java.ReikaStringParser;
 import Reika.FurryKingdoms.FurryKingdoms;
 import Reika.FurryKingdoms.ItemFlag;

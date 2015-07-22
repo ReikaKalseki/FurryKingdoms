@@ -11,7 +11,7 @@ package Reika.FurryKingdoms.Base;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import Reika.DragonAPI.Interfaces.IndexedItemSprites;
+import Reika.DragonAPI.Interfaces.Item.IndexedItemSprites;
 import Reika.FurryKingdoms.FurryKingdoms;
 
 public class ItemFurryBasic extends Item implements IndexedItemSprites {

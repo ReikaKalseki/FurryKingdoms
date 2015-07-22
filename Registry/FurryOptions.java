@@ -9,13 +9,11 @@
  ******************************************************************************/
 package Reika.FurryKingdoms.Registry;
 
-import net.minecraftforge.common.config.Configuration;
-import Reika.DragonAPI.Exception.RegistrationException;
-import Reika.DragonAPI.Interfaces.ConfigList;
+import Reika.DragonAPI.Interfaces.Configuration.BooleanConfig;
+import Reika.DragonAPI.Interfaces.Configuration.IntegerConfig;
 import Reika.FurryKingdoms.FurryKingdoms;
-import Reika.RotaryCraft.RotaryCraft;
 
-public enum FurryOptions implements ConfigList {
+public enum FurryOptions implements IntegerConfig, BooleanConfig {
 
 	CHATRATING("Chat Rating", EnumRating.PG13.ordinal()),
 	STORYRATING("Storyline Rating", EnumRating.PG13.ordinal()),
@@ -28,7 +26,6 @@ public enum FurryOptions implements ConfigList {
 	private String label;
 	private boolean defaultState;
 	private int defaultValue;
-	private float defaultFloat;
 	private Class type;
 
 	public static final FurryOptions[] optionList = FurryOptions.values();
@@ -53,38 +50,12 @@ public enum FurryOptions implements ConfigList {
 		return type == int.class;
 	}
 
-	public boolean isDecimal() {
-		return type == float.class;
-	}
-
-	public float setDecimal(Configuration config) {
-		if (!this.isDecimal())
-			throw new RegistrationException(RotaryCraft.instance, "Config Property \""+this.getLabel()+"\" is not decimal!");
-		return (float)config.get("Control Setup", this.getLabel(), defaultFloat).getDouble(defaultFloat);
-	}
-
-	public float getFloat() {
-		return (Float)RotaryCraft.config.getControl(this.ordinal());
-	}
-
 	public Class getPropertyType() {
 		return type;
 	}
 
-	public int setValue(Configuration config) {
-		if (!this.isNumeric())
-			throw new RegistrationException(FurryKingdoms.instance, "Config Property \""+this.getLabel()+"\" is not numerical!");
-		return config.get("Control Setup", this.getLabel(), defaultValue).getInt();
-	}
-
 	public String getLabel() {
 		return label;
-	}
-
-	public boolean setState(Configuration config) {
-		if (!this.isBoolean())
-			throw new RegistrationException(FurryKingdoms.instance, "Config Property \""+this.getLabel()+"\" is not boolean!");
-		return config.get("Control Setup", this.getLabel(), defaultState).getBoolean(defaultState);
 	}
 
 	public boolean getState() {
@@ -111,11 +82,6 @@ public enum FurryOptions implements ConfigList {
 	@Override
 	public int getDefaultValue() {
 		return defaultValue;
-	}
-
-	@Override
-	public float getDefaultFloat() {
-		return defaultFloat;
 	}
 
 	@Override

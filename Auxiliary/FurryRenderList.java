@@ -12,7 +12,7 @@ package Reika.FurryKingdoms.Auxiliary;
 import java.util.HashMap;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import Reika.DragonAPI.Interfaces.RenderFetcher;
+import Reika.DragonAPI.Interfaces.TileEntity.RenderFetcher;
 import Reika.DragonAPI.Libraries.Java.ReikaJavaLibrary;
 import Reika.FurryKingdoms.Base.FurryRenderBase;
 import Reika.FurryKingdoms.Registry.FurryTiles;
