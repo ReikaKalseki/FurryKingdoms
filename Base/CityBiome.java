@@ -19,6 +19,7 @@ public class CityBiome extends BiomeGenBase {
 	public CityBiome(int ID, SpeciesType type) {
 		super(ID);
 		species = type;
+		biomeName = this.getClass().getSimpleName();
 	}
 
 }

@@ -13,6 +13,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Locale;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import Reika.DragonAPI.Exception.RegistrationException;
@@ -45,7 +46,7 @@ public enum SpeciesType {
 	}
 
 	public String getSpeciesName() {
-		return this.name().substring(0, 1)+this.name().toLowerCase().substring(1);
+		return this.name().substring(0, 1)+this.name().toLowerCase(Locale.ENGLISH).substring(1);
 	}
 
 	public int getMaxHealth() {
@@ -76,8 +77,8 @@ public enum SpeciesType {
 
 	public Class getBiomeClass() {
 		switch(this) {
-		default:
-			return CityBiome.class;
+			default:
+				return CityBiome.class;
 		}
 	}
 

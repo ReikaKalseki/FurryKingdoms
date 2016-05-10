@@ -17,20 +17,17 @@ import Reika.FurryKingdoms.Registry.SpeciesType;
 
 public class FurryConfig extends ControlledConfig {
 
-	public FurryConfig(DragonAPIMod mod, ConfigList[] option, IDRegistry[] id, int cfg) {
-		super(mod, option, id, cfg);
-	}
+	private DataElement<Integer>[] cityIDs = new DataElement[SpeciesType.speciesList.length];
 
-	private int[] cityIDs = new int[SpeciesType.speciesList.length];
+	public FurryConfig(DragonAPIMod mod, ConfigList[] option, IDRegistry[] id) {
+		super(mod, option, id);
 
-	//Initialization of the config
-	@Override
-	protected void loadAdditionalData() {
 		for (int i = 0; i < SpeciesType.speciesList.length; i++) {
 			String name = SpeciesType.speciesList[i].name();
-			cityIDs[i] = config.get("City Biome IDs", name, 200+i).getInt();
+			cityIDs[i] = this.registerAdditionalOption("City Biome IDs", name, 200+i);
 		}
 	}
+
 	/*
 	@Override
 	protected void resetConfigFile() {
@@ -82,6 +79,6 @@ public class FurryConfig extends ControlledConfig {
 	}*/
 
 	public int getCityID(int ordinal) {
-		return cityIDs[ordinal];
+		return cityIDs[ordinal].getData();
 	}
 }

@@ -44,7 +44,7 @@ public class FurryKingdoms extends DragonAPIMod {
 	@Instance("FurryKingdoms")
 	public static FurryKingdoms instance = new FurryKingdoms();
 
-	public static final FurryConfig config = new FurryConfig(instance, FurryOptions.optionList, null, 1);
+	public static final FurryConfig config = new FurryConfig(instance, FurryOptions.optionList, null);
 
 	public static Block[] blocks = new Block[FurryBlocks.blockList.length];
 	public static Item[] items = new Item[FurryItems.itemList.length];
